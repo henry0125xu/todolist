@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0.1px red dashed;
+  box-sizing: border-box;
+  color: white;
+  background-color: black;
+  font-size: 1.25rem;
+}
+
+@import "./nav";
+@import "./new_list";
+@import "./lists";
+@import "./single_list";
+@import "./footer";

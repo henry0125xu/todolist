@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0.1px red dashed;
+  box-sizing: border-box;
+  color: white;
+  background-color: black;
+  font-size: 1.25rem;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+}
+.nav ul li {
+  margin: 1rem 2rem;
+}
+
+.newList {
+  display: flex;
+  justify-content: center;
+}
+.newList input,
+.newList button {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.lists {
+  display: flex;
+  justify-content: center;
+}
+.lists ul {
+  flex-direction: column;
+  display: flex;
+  list-style: none;
+}
+
+.singleList {
+  display: flex;
+}
+.singleList li {
+  width: 15rem;
+}
+.singleList button {
+  width: 7rem;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,9 @@
+.newList {
+  display: flex;
+  justify-content: center;
+  input,
+  button {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,9 @@
+.lists {
+  display: flex;
+  justify-content: center;
+  ul {
+    flex-direction: column;
+    display: flex;
+    list-style: none;
+  }
+}
