@@ -13,4 +13,4 @@ root.render(
   </React.StrictMode>
 );
 
-console.log("Fount-end server is running on port 3000......");
+console.log("Front-end server is running on port 3000......");

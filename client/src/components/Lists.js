@@ -1,9 +1,21 @@
 import React from "react";
+import SingleList from "./SingleList";
 
-const Lists = ({ currentLists }) => {
+const Lists = ({ currentLists, setCurrentLists }) => {
   return (
     <div className="lists">
-      <ul>{currentLists.map((item) => item)}</ul>
+      <ul>
+        {currentLists.map((list) => {
+          return (
+            <SingleList
+              subjectData={list.subjectData}
+              listId={list.listId}
+              currentLists={currentLists}
+              setCurrentLists={setCurrentLists}
+            />
+          );
+        })}
+      </ul>
     </div>
   );
 };

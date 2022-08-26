@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SingleList from "./SingleList";
+import { v4 as uuidv4 } from "uuid";
 
 const NewList = ({ currentLists, setCurrentLists }) => {
   const [subjectData, setSubjectData] = useState("");
@@ -8,9 +8,8 @@ const NewList = ({ currentLists, setCurrentLists }) => {
     setSubjectData(e.target.value);
   };
 
-  const submitHandler = (e) => {
-    const newListObj = <SingleList subjectData={subjectData} />;
-    setCurrentLists([...currentLists, newListObj]);
+  const submitHandler = () => {
+    setCurrentLists([...currentLists, { subjectData, listId: uuidv4() }]);
     setSubjectData("");
   };
 

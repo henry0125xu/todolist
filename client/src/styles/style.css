@@ -23,6 +23,8 @@
 .newList input,
 .newList button {
   border: 1px solid white;
+}
+.newList button {
   cursor: pointer;
 }
 
@@ -44,4 +46,5 @@
 }
 .singleList button {
   width: 7rem;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

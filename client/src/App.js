@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Nav />
       <NewList currentLists={currentLists} setCurrentLists={setCurrentLists} />
-      <Lists currentLists={currentLists} />
+      <Lists currentLists={currentLists} setCurrentLists={setCurrentLists} />
       <Footer />
     </div>
   );
