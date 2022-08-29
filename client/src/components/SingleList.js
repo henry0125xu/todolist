@@ -8,7 +8,6 @@ const SingleList = ({ subjectData, listId, currentLists, setCurrentLists }) => {
   return (
     <div className="singleList">
       <li>{subjectData}</li>
-      <button>Finished</button>
       <button onClick={removeHandler}>Remove</button>
     </div>
   );

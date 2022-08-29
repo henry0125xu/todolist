@@ -1,13 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0.1px red dashed;
+  border: 0.1px rgb(255, 0, 0) solid;
   box-sizing: border-box;
-  color: white;
   background-color: black;
+  color: white;
   font-size: 1.25rem;
+  font-family: "Crimson Text", serif;
 }
-
+body {
+  overflow-y: hidden;
+}
 @import "./nav";
 @import "./new_list";
 @import "./lists";

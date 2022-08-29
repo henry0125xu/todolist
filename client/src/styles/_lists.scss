@@ -1,9 +1,31 @@
 .lists {
   display: flex;
   justify-content: center;
+  height: 63vh;
+  overflow-y: scroll;
+  // scrollbar-base-color: black;
   ul {
     flex-direction: column;
     display: flex;
     list-style: none;
   }
+}
+
+// for Chrome, Edge, Safari and Opera
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #181717;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(53, 51, 51);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(43, 42, 42);
 }

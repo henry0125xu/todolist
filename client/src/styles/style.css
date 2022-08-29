@@ -1,11 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0.1px red dashed;
+  border: 0.1px rgb(255, 0, 0) solid;
   box-sizing: border-box;
-  color: white;
   background-color: black;
+  color: white;
   font-size: 1.25rem;
+  font-family: "Crimson Text", serif;
+}
+
+body {
+  overflow-y: hidden;
 }
 
 .nav ul {
@@ -19,6 +24,7 @@
 .newList {
   display: flex;
   justify-content: center;
+  margin: 2rem;
 }
 .newList input,
 .newList button {
@@ -31,11 +37,33 @@
 .lists {
   display: flex;
   justify-content: center;
+  height: 63vh;
+  overflow-y: scroll;
 }
 .lists ul {
   flex-direction: column;
   display: flex;
   list-style: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #181717;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(53, 51, 51);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(43, 42, 42);
 }
 
 .singleList {
@@ -47,4 +75,8 @@
 .singleList button {
   width: 7rem;
   cursor: pointer;
+}
+
+.footer {
+  height: 10vh;
 }/*# sourceMappingURL=style.css.map */
