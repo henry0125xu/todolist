@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     minLength: 6,
     maxLength: 1024,
   },
-  lists: [{ subjectName: String }],
+  lists: [{ subject: String }],
 });
 
 userSchema.pre("save", async function (next) {

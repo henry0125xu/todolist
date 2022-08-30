@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", auth);
 app.use("/api/home", passport.authenticate("jwt", { session: false }), home);
-//app.use("/api/home", home);
 
 app.listen(8080, () => {
   console.log("Back-end server is running on port 8080......");

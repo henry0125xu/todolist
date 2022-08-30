@@ -9,7 +9,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.post("/registor", async (req, res) => {
+router.post("/register", async (req, res) => {
   // check the validation of data
   const { error } = registerValidator(req.body);
   if (error) return res.status(400).send(error.details[0].message);
