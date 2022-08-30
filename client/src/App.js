@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles/style.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import Nav from "./components/Nav";
-import NewList from "./components/NewList";
-import Lists from "./components/Lists";
 import Footer from "./components/Footer";
 
 function App() {
-  const [currentLists, setCurrentLists] = useState([]);
-
   return (
     <div className="App">
       <Nav />
-      <NewList currentLists={currentLists} setCurrentLists={setCurrentLists} />
-      <Lists currentLists={currentLists} setCurrentLists={setCurrentLists} />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
       <Footer />
     </div>
   );

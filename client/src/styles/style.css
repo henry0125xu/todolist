@@ -13,6 +13,20 @@ body {
   overflow-y: hidden;
 }
 
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav ul {
   display: flex;
   list-style: none;
