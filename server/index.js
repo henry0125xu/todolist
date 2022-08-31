@@ -6,6 +6,7 @@ const auth = require("./routes").auth;
 const home = require("./routes").home;
 const passport = require("passport");
 require("./config/passport")(passport);
+const cors = require("cors");
 
 // connect to DB
 mongoose
@@ -20,6 +21,7 @@ mongoose
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use("/api/auth", auth);
 app.use("/api/home", passport.authenticate("jwt", { session: false }), home);
 

@@ -1,13 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import AuthService from "../services/auth";
 
-const Nav = () => {
+const Nav = ({ currentUser, setCurrentUser }) => {
+  const logoutHandler = () => {
+    AuthService.logout();
+    setCurrentUser(AuthService.getCurrentUser());
+    alert("Logout succeed~");
+  };
+
   return (
     <div className="nav">
       <ul>
-        <li>Home</li>
-        <li>Register</li>
-        <li>Login</li>
-        <li>Logout</li>
+        <li>
+          <Link to="/home">Home</Link>
+        </li>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+        {!currentUser && (
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        )}
+        {currentUser && (
+          <li>
+            <Link to="/home" onClick={logoutHandler}>
+              Logout
+            </Link>
+          </li>
+        )}
       </ul>
     </div>
   );

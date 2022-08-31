@@ -6,17 +6,6 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/testAPI", (req, res) => {
-  try {
-    const msgObj = {
-      msg: "TestAPI is working...",
-    };
-    return res.json(msgObj);
-  } catch (e) {
-    res.send("ERROR");
-  }
-});
-
 // show all informations
 router.get("/", async (req, res) => {
   const profile = await User.findOne({ username: "user1" });
@@ -49,6 +38,13 @@ router.delete("/", (req, res) => {
     .catch((e) => {
       res.send(e);
     });
+});
+
+router.get("/testAPI", (req, res) => {
+  const msgObj = {
+    msg: "TestAPI is working...",
+  };
+  return res.json(msgObj);
 });
 
 module.exports = router;

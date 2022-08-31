@@ -9,8 +9,17 @@
   font-family: "Crimson Text", serif;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 body {
   overflow-y: hidden;
+}
+
+button {
+  cursor: pointer;
 }
 
 .register {
@@ -43,9 +52,6 @@ body {
 .newList input,
 .newList button {
   border: 1px solid white;
-}
-.newList button {
-  cursor: pointer;
 }
 
 .lists {
@@ -88,7 +94,6 @@ body {
 }
 .singleList button {
   width: 7rem;
-  cursor: pointer;
 }
 
 .footer {
