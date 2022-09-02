@@ -1,1 +1,2 @@
-# todolist
+# Simple todolist
+# w/ membership sys.
