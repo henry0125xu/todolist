@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import CRUDService from "../services/crud";
 
-const NewList = ({ currentLists, setCurrentLists }) => {
+const NewList = ({ setCurrentLists }) => {
   const [subjectData, setSubjectData] = useState("");
 
   const subjectDataHandler = (e) => {
@@ -10,8 +10,16 @@ const NewList = ({ currentLists, setCurrentLists }) => {
 
   const submitHandler = () => {
     if (0 < subjectData.length && subjectData.length <= 30) {
-      setCurrentLists([...currentLists, { subjectData, listId: uuidv4() }]);
-      setSubjectData("");
+      CRUDService.addSubject(subjectData)
+        .then((res) => {
+          console.log("Addition succeed~~~");
+          localStorage.setItem("user", JSON.stringify(res.data));
+          setCurrentLists(JSON.parse(localStorage.getItem("user")).lists);
+          setSubjectData("");
+        })
+        .catch((err) => {
+          alert(err.response.data);
+        });
     } else {
       alert("The length of subject name is out of range...");
     }
@@ -33,7 +41,7 @@ const NewList = ({ currentLists, setCurrentLists }) => {
         value={subjectData}
         onKeyPress={keySubmitHandler}
       />
-      <button onClick={submitHandler}>Submit</button>
+      <button onClick={submitHandler}>Add</button>
     </div>
   );
 };

@@ -6,38 +6,36 @@ router.use((req, res, next) => {
   next();
 });
 
-// show all informations
-router.get("/", async (req, res) => {
-  const profile = await User.findOne({ username: "user1" });
-  res.send(profile);
-});
-
 // add new subject
 router.post("/", (req, res) => {
   User.findOneAndUpdate(
-    { username: "user2" },
-    { $push: { lists: { subject: "Operating System" } } }
-  )
-    .then(() => {
-      res.send("Success");
-    })
-    .catch((e) => {
-      res.send(e);
-    });
+    { email: req.body.email },
+    { $push: { lists: { subject: req.body.subject } } },
+    { new: true },
+    (err, data) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(data);
+      }
+    }
+  );
 });
 
-// delete a specified subject
+// delete specified subject
 router.delete("/", (req, res) => {
   User.findOneAndUpdate(
-    { username: "user1" },
-    { $pull: { lists: { subject: "Algorithm" } } }
-  )
-    .then(() => {
-      res.send("Success");
-    })
-    .catch((e) => {
-      res.send(e);
-    });
+    { email: req.body.email },
+    { $pull: { lists: { _id: req.body._id } } },
+    { new: true },
+    (err, data) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(data);
+      }
+    }
+  );
 });
 
 router.get("/testAPI", (req, res) => {

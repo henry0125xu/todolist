@@ -1,13 +1,22 @@
 import React from "react";
+import CRUDService from "../services/crud";
 
-const SingleList = ({ subjectData, listId, currentLists, setCurrentLists }) => {
+const SingleList = ({ subject, id, setCurrentLists }) => {
   const removeHandler = () => {
-    setCurrentLists(currentLists.filter((list) => list.listId !== listId));
+    CRUDService.removeSubject(id)
+      .then((res) => {
+        console.log("Removement succeed~~~");
+        localStorage.setItem("user", JSON.stringify(res.data));
+        setCurrentLists(JSON.parse(localStorage.getItem("user")).lists);
+      })
+      .catch((err) => {
+        alert(err.response.data);
+      });
   };
 
   return (
     <div className="singleList">
-      <li>{subjectData}</li>
+      <li>{subject}</li>
       <button onClick={removeHandler}>Remove</button>
     </div>
   );

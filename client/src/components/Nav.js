@@ -6,7 +6,7 @@ const Nav = ({ currentUser, setCurrentUser }) => {
   const logoutHandler = () => {
     AuthService.logout();
     setCurrentUser(AuthService.getCurrentUser());
-    alert("Logout succeed~");
+    //alert("Logout succeed~");
   };
 
   return (

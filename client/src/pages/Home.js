@@ -14,10 +14,7 @@ const Home = ({ currentUser, setCurrentUser }) => {
   if (currentUser) {
     return (
       <div className="home">
-        <NewList
-          currentLists={currentLists}
-          setCurrentLists={setCurrentLists}
-        />
+        <NewList setCurrentLists={setCurrentLists} />
         <Lists currentLists={currentLists} setCurrentLists={setCurrentLists} />
       </div>
     );

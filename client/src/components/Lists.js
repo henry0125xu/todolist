@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SingleList from "./SingleList";
 
 const Lists = ({ currentLists, setCurrentLists }) => {
+  useEffect(() => {
+    setCurrentLists(JSON.parse(localStorage.getItem("user")).lists);
+  }, []);
+
   return (
     <div className="lists">
       <ul>
         {currentLists.map((list) => {
           return (
             <SingleList
-              subjectData={list.subjectData}
-              listId={list.listId}
-              currentLists={currentLists}
+              subject={list.subject}
+              id={list._id}
               setCurrentLists={setCurrentLists}
             />
           );
