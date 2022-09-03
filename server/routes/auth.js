@@ -1,8 +1,12 @@
 const router = require("express").Router();
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
 const registerValidator = require("../validation").registerValidator;
 const loginValidator = require("../validation").loginValidator;
 const User = require("../models").user;
-const jwt = require("jsonwebtoken");
+
+const HOME_URL = "http://localhost:3000/home";
+const LOGIN_URL = "http://localhost:3000/login";
 
 router.use((req, res, next) => {
   console.log("A request is coming in......");
@@ -60,6 +64,19 @@ router.post("/login", (req, res) => {
     }
   });
 });
+
+router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+
+router.get(
+  "/google/redirect",
+  passport.authenticate("google", { failureRedirect: LOGIN_URL }),
+  (req, res) => {
+    res.redirect(HOME_URL);
+  }
+);
 
 router.get("/testAPI", (req, res) => {
   const msgObj = {

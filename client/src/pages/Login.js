@@ -29,6 +29,10 @@ const Login = () => {
       });
   };
 
+  const googleLoginHandler = () => {
+    AuthService.googleLogin();
+  };
+
   return (
     <div className="login">
       <div className="email">
@@ -40,6 +44,7 @@ const Login = () => {
         <input type="password" id="password" onChange={getPasswordData} />
       </div>
       <button onClick={loginHandler}>Login</button>
+      <button onClick={googleLoginHandler}>Login with Google</button>
     </div>
   );
 };

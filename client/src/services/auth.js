@@ -8,6 +8,10 @@ class AuthService {
       password,
     });
   }
+  googleLogin() {
+    let x = window.open(API_URL + "/google", "_self");
+    console.log(x);
+  }
   logout() {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
