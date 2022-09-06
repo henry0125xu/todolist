@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthService from "../services/auth";
+import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -29,9 +30,39 @@ const Login = () => {
       });
   };
 
-  const googleLoginHandler = () => {
-    AuthService.googleLogin();
+  const googleLoginHandler = async (res) => {
+    const user = jwtDecode(res.credential);
+    console.log(user);
+    AuthService.googleLogin(user.name, user.email)
+      .then((res) => {
+        if (res.data.token) {
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          localStorage.setItem("token", JSON.stringify(res.data.token));
+          console.log("Login succeed~");
+          navigate("/home");
+        }
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
+
+  useEffect(() => {
+    window.google.accounts.id.initialize({
+      client_id:
+        "816843187817-iephlb863mgjrtdrdjtsca80p15q4eju.apps.googleusercontent.com",
+      callback: googleLoginHandler,
+    });
+    window.google.accounts.id.renderButton(
+      document.getElementById("googleLogin"),
+      {
+        theme: "filled_black",
+        size: "medium",
+        text: "signin",
+        locale: "en",
+      }
+    );
+  }, []);
 
   return (
     <div className="login">
@@ -44,7 +75,7 @@ const Login = () => {
         <input type="password" id="password" onChange={getPasswordData} />
       </div>
       <button onClick={loginHandler}>Login</button>
-      <button onClick={googleLoginHandler}>Login with Google</button>
+      <div id="googleLogin"></div>
     </div>
   );
 };

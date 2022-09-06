@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./styles/style.css";
 import { Routes, Route } from "react-router-dom";
+import Welcome from "./components/Welcome";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <Routes>
+        <Route path="/" element={<Welcome />}></Route>
         <Route
           path="/home"
           element={
