@@ -1,8 +1,9 @@
 const router = require("express").Router();
+const jwt = require("jsonwebtoken");
 const registerValidator = require("../validation").registerValidator;
 const loginValidator = require("../validation").loginValidator;
 const User = require("../models").user;
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 router.use((req, res, next) => {
   console.log("A request is coming in......");
@@ -16,7 +17,7 @@ router.post("/register", async (req, res) => {
 
   // check if the user exists
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send("Email has been registered...");
+  if (emailExist) return res.status(400).send("The user is registered...");
 
   // register the user
   const newUser = new User({
@@ -59,6 +60,25 @@ router.post("/login", (req, res) => {
       });
     }
   });
+});
+
+router.post("/google", async (req, res) => {
+  let user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    const hash = bcrypt.hashSync(req.body.email, 8);
+    await new User({
+      username: req.body.username,
+      email: req.body.email,
+      password: hash,
+    })
+      .save()
+      .then((savedUser) => {
+        user = savedUser;
+      });
+  }
+  const tokenObj = { _id: user._id, email: user.email };
+  const token = jwt.sign(tokenObj, process.env.PASSPORT_SECRET);
+  res.send({ success: true, token: "JWT " + token, user });
 });
 
 router.get("/testAPI", (req, res) => {

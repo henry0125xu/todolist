@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const API_URL = "http://localhost:8080/api/auth";
 
 class AuthService {
@@ -7,6 +8,9 @@ class AuthService {
       email,
       password,
     });
+  }
+  googleLogin(username, email) {
+    return axios.post(API_URL + "/google", { username, email });
   }
   logout() {
     localStorage.removeItem("user");

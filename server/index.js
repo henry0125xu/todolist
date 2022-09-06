@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-require("dotenv").config();
+const passport = require("passport");
+const cors = require("cors");
 const auth = require("./routes").auth;
 const home = require("./routes").home;
-const passport = require("passport");
+require("dotenv").config();
 require("./config/passport")(passport);
-const cors = require("cors");
 
 // connect to DB
 mongoose
