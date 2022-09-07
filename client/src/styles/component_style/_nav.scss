@@ -1,9 +1,18 @@
 .nav {
+  font-size: 1.25rem;
+  background-color: rgba(244, 15, 187, 0.721);
   ul {
     display: flex;
     list-style: none;
     li {
-      margin: 1rem 2rem;
+      padding: 1rem 0;
+      a {
+        color: white;
+        padding: 1rem 2rem;
+      }
+    }
+    li:hover {
+      background-color: rgba(239, 174, 222, 0.721);
     }
   }
 }

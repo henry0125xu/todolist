@@ -29,19 +29,38 @@ const Register = () => {
 
   return (
     <div className="register">
-      <div className="username">
-        <label htmlFor="username">User Name:&nbsp;</label>
-        <input type="text" id="username" onChange={getUsernameData} />
+      <div className="reg_box">
+        <p>Register your account</p>
+        <hr></hr>
+        <div className="username">
+          <label htmlFor="username">User Name:&nbsp;</label>
+          <input
+            type="text"
+            id="username"
+            onChange={getUsernameData}
+            autocomplete="off"
+          />
+        </div>
+        <div className="email">
+          <label htmlFor="email">Email:&nbsp;</label>
+          <input
+            type="email"
+            id="email"
+            onChange={getEmailData}
+            autocomplete="off"
+          />
+        </div>
+        <div className="password">
+          <label htmlFor="password">Password:&nbsp;</label>
+          <input
+            type="password"
+            id="password"
+            onChange={getPasswordData}
+            autocomplete="off"
+          />
+        </div>
+        <button onClick={registerHandler}>Register</button>
       </div>
-      <div className="email">
-        <label htmlFor="email">Email:&nbsp;</label>
-        <input type="email" id="email" onChange={getEmailData} />
-      </div>
-      <div className="password">
-        <label htmlFor="password">Password:&nbsp;</label>
-        <input type="password" id="password" onChange={getPasswordData} />
-      </div>
-      <button onClick={registerHandler}>Register</button>
     </div>
   );
 };

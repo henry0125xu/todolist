@@ -4,6 +4,7 @@ import AuthService from "../services/auth";
 
 const Nav = ({ currentUser, setCurrentUser }) => {
   const logoutHandler = () => {
+    window.google.accounts.id.disableAutoSelect();
     AuthService.logout();
     setCurrentUser(AuthService.getCurrentUser());
     //alert("Logout succeed~");

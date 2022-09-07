@@ -8,8 +8,9 @@ import Login from "./pages/Login";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-function App() {
+const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
+
   return (
     <div className="App">
       <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
@@ -27,6 +28,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

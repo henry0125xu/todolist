@@ -1,9 +1,32 @@
 .newList {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 2rem;
-  input,
-  button {
+  background-color: rgba(231, 39, 125, 0.5);
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  box-shadow: 3px 3px 7px rgb(144, 177, 188);
+  animation: appear 0.7s ease;
+  input {
     border: 1px solid white;
+    display: block;
+    margin: 0rem 0.5rem;
+    height: 36px;
+    border-radius: 8px;
+    width: 310px;
+    font-size: 1.3rem;
+  }
+  .addSubject {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 20px;
+  }
+  .addSubject:hover {
+    color: rgb(47, 255, 71);
   }
 }

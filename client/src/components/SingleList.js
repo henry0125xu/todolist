@@ -2,10 +2,12 @@ import React from "react";
 import CRUDService from "../services/crud";
 
 const SingleList = ({ subject, id, setCurrentLists }) => {
-  const removeHandler = () => {
+  const removeHandler = (e) => {
+    // const removedList = e.target.parentElement;
+    // // removedList.addEventListener("animationend", () => {});
+    // removedList.style.animation = "disappear 0.7s forwards";
     CRUDService.removeSubject(id)
       .then((res) => {
-        console.log("Removement succeed~~~");
         localStorage.setItem("user", JSON.stringify(res.data));
         setCurrentLists(JSON.parse(localStorage.getItem("user")).lists);
       })
@@ -17,7 +19,7 @@ const SingleList = ({ subject, id, setCurrentLists }) => {
   return (
     <div className="singleList">
       <li>{subject}</li>
-      <button onClick={removeHandler}>Remove</button>
+      <i class="fa-solid fa-trash-can remove" onClick={removeHandler}></i>
     </div>
   );
 };

@@ -33,15 +33,16 @@ const NewList = ({ setCurrentLists }) => {
 
   return (
     <div className="newList">
-      <label htmlFor="subject">Subject:&nbsp;</label>
+      <label htmlFor="subject">New Subject:&nbsp;</label>
       <input
         type="text"
         id="subject"
         onChange={subjectDataHandler}
         value={subjectData}
         onKeyPress={keySubmitHandler}
+        autocomplete="off"
       />
-      <button onClick={submitHandler}>Add</button>
+      <i class="fa-solid fa-circle-plus addSubject" onClick={submitHandler}></i>
     </div>
   );
 };

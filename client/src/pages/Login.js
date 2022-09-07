@@ -55,26 +55,33 @@ const Login = () => {
     window.google.accounts.id.renderButton(
       document.getElementById("googleLogin"),
       {
-        theme: "filled_black",
-        size: "medium",
-        text: "signin",
-        locale: "en",
+        theme: "outline",
+        size: "large",
       }
     );
   }, []);
 
   return (
     <div className="login">
-      <div className="email">
-        <label htmlFor="email">Email:&nbsp;</label>
-        <input type="email" id="email" onChange={getEmailData} />
+      <div className="login_box">
+        <p>Login to your account</p>
+        <hr />
+        <div className="email">
+          <label htmlFor="email">Email:&nbsp;</label>
+          <input type="email" id="email" onChange={getEmailData} />
+        </div>
+        <div className="password">
+          <label htmlFor="password">Password:&nbsp;</label>
+          <input type="password" id="password" onChange={getPasswordData} />
+        </div>
+        <div className="button_box">
+          <button className="localLogin" onClick={loginHandler}>
+            Local login
+          </button>
+          <p>...or you can log in with your Google account:</p>
+          <div id="googleLogin"></div>
+        </div>
       </div>
-      <div className="password">
-        <label htmlFor="password">Password:&nbsp;</label>
-        <input type="password" id="password" onChange={getPasswordData} />
-      </div>
-      <button onClick={loginHandler}>Login</button>
-      <div id="googleLogin"></div>
     </div>
   );
 };
