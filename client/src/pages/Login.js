@@ -49,8 +49,7 @@ const Login = () => {
 
   useEffect(() => {
     window.google.accounts.id.initialize({
-      client_id:
-        "816843187817-iephlb863mgjrtdrdjtsca80p15q4eju.apps.googleusercontent.com",
+      client_id: process.env.REACT_APP_API_KEY,
       callback: googleLoginHandler,
     });
     window.google.accounts.id.renderButton(
