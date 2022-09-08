@@ -264,7 +264,6 @@ button {
 
 .lists {
   display: flex;
-  justify-content: center;
   height: 63vh;
   overflow-y: scroll;
   padding: 3px;
@@ -273,10 +272,7 @@ button {
   box-shadow: 6px 6px 8px rgb(144, 177, 188);
   -webkit-animation: appear 0.8s ease;
           animation: appear 0.8s ease;
-}
-.lists ul {
   flex-direction: column;
-  display: flex;
   list-style: none;
   width: 540px;
 }
@@ -339,13 +335,11 @@ button {
     transform: scale(1);
   }
 }
-@-webkit-keyframes disappear {
-  to {
-    transform: scale(0);
-  }
+.fade-exit {
+  opacity: 1;
 }
-@keyframes disappear {
-  to {
-    transform: scale(0);
-  }
+
+.fade-exit-active {
+  transform: scale(0);
+  transition: transform 500ms ease;
 }/*# sourceMappingURL=style.css.map */
