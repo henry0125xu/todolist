@@ -21,7 +21,6 @@ const Login = () => {
         if (res.data.token) {
           localStorage.setItem("user", JSON.stringify(res.data.user));
           localStorage.setItem("token", JSON.stringify(res.data.token));
-          console.log("Login succeed~");
           navigate("/home");
         }
       })
@@ -38,7 +37,6 @@ const Login = () => {
         if (res.data.token) {
           localStorage.setItem("user", JSON.stringify(res.data.user));
           localStorage.setItem("token", JSON.stringify(res.data.token));
-          console.log("Login succeed~");
           navigate("/home");
         }
       })

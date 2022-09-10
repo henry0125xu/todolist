@@ -7,7 +7,6 @@ const Nav = ({ currentUser, setCurrentUser }) => {
     window.google.accounts.id.disableAutoSelect();
     AuthService.logout();
     setCurrentUser(AuthService.getCurrentUser());
-    //alert("Logout succeed~");
   };
 
   return (
@@ -26,7 +25,7 @@ const Nav = ({ currentUser, setCurrentUser }) => {
         )}
         {currentUser && (
           <li>
-            <Link to="/home" onClick={logoutHandler}>
+            <Link to="/" onClick={logoutHandler}>
               Logout
             </Link>
           </li>

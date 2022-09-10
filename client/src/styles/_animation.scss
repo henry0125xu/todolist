@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes quickRotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1080deg);
+  }
+}
+
 .fade-exit {
   opacity: 1;
 }
